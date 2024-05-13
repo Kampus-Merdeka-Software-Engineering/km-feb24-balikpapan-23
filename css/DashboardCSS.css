@@ -1,0 +1,135 @@
+/* Global Styles */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* styling font pada header */
+ h1{
+  font-size: 32px;
+
+ }
+
+/* ukuran gambar pada header  */
+.img{
+  height: 10px; 
+  width: 25%;
+}
+
+/*  styling bar navigasi */
+.navbar-wrapper{
+  width: 100%;
+  height: 10px;
+  padding: 80px;
+  font-family: 'Times New Roman', Times, serif;
+  color: #ffffff;
+  background-color: #ca8bea;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*  styling filter bulan */
+.filter-container {
+  display: flex;
+  background-color: #ca8bea;
+  display: flex;
+}
+
+.filter-month {
+  flex: 1; /* Atur lebar filter sidebar */
+  background-color: #ca8bea; /* Warna latar belakang filter sidebar */
+  padding: 10px;
+}
+
+.filter-product {
+  display: flex;
+  background-color: #ca8bea;
+  display: flex;
+}
+
+/* styling title  */
+.title{
+  width: 100%;
+  height: 60px;
+  background-color:#620093;
+  text-align: center;
+  color: aliceblue;
+  line-height: 60px;
+  font-size: 26px;
+}
+
+/*  styling background */
+.list-menu {
+  width: auto;
+  height: auto;
+  font-size: 24px;
+}
+
+.list-menu li{
+  display: inline-block;
+  cursor: pointer;
+}
+
+.list-menu li hover{
+  background-color:#5d217b; ;
+}
+
+.list-menu li hover{
+  color: azure;
+}
+
+.list-menu li a{
+  text-decoration: none;
+}
+
+/* styyling konten dashboard  */
+.hero-section {
+  width: 100%;
+  min-height: 700px;
+  padding: 20px 80px;
+  background-color:#a105ef; ;
+  font-family: 'Times New Roman', Times, serif;
+  color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+/* background belakang konten  */
+.list-chart {
+  width: 50%;
+  height: 400px;
+ /*background-color:#ff69b4;
+ /* border: 1px solid black;*/
+  /*border: 2px solid #ff69b4; /* Ukuran garis: 2px, warna: merah muda */
+ /* border-width: 0px 0px 0px 0px; /* Membuat garis diagonal dari kiri atas ke kanan bawah */
+  padding: 16px;
+  background-image: repeating-linear-gradient(to right, #ff69b4, #ff69b4 10px, #fff 10px, #fff 20px);
+  background-size: 20px 100%;
+  border-width: 2px 2px 0 0
+}
+
+/* styling isi kotak dashboard */
+.content{
+  width: 100%;
+  height: 100%;
+  background-color:#a105ef;
+
+}
+
+/* footer  */
+footer{
+  width: 100%;
+  height: 20px;
+  background-color: #ca8bea;
+
+}
+
+/*  ukuran layar */
+@media only screen and (min-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+}
