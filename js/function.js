@@ -1,7 +1,7 @@
 //masih contoh
 document.addEventListener('DOMContentLoaded', (event) => {
     // Fetch the JSON data from the online source
-    fetch('https://gist.githubusercontent.com/ElckyMT/af7a3d5423bf2178046336247b613960/raw/851ea52116e84fbfe495a8c5bfba9165442316ba/data.json')  // replace with your raw URL
+    fetch('https://gist.githubusercontent.com/ElckyMT/af7a3d5423bf2178046336247b613960/raw/d1fa7f89c2f04c1a6f8d548be6531b8f407b8149/data.json')  // replace with your raw URL
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
