@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tim 23 Balikpapan RevoU</title>
   <link rel="stylesheet" href="./css/DashboardCSS.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="./js/function.js" defer></script>
 </head>
 <body>
   <!-- header -->
@@ -53,14 +55,6 @@
     </select>
   </div>
 
-  <div class="filter-product">
-    <label for="filter-product">Pilih Produk:</label>
-    <select id="filter-product">
-      <option value="">Semua Produk</option>
-    </select>
-  </div>
-  
-
   <!-- Isi web: Dashboard -->
   <section class="hero-section">
     <div class="insidetit">
@@ -70,24 +64,28 @@
       <div class="content">
         <h3>Revenue</h3>
         <p id="revenue"></p>
+        <canvas id="revenueChart"></canvas>
       </div>
     </div>
     <div class="list-chart">
       <div class="content">
         <h4>Quantity</h4>
         <p id="quantity"></p>
+        <canvas id="quantityChart"></canvas>
       </div>
     </div>
     <div class="list-chart">
       <div class="content">
         <h5>Customer</h5>
         <p id="customer"></p>
+        <canvas id="customerChart"></canvas>
       </div>
     </div>
     <div class="list-chart">
       <div class="content">
         <h6>Top 5 Products</h6>
-        <ul id="top_products"></ul>
+        <p id="top_products"></p>
+        <canvas id="topProductsChart"></canvas>
       </div>
     </div>
   </section>
@@ -98,6 +96,6 @@
   </footer>
 
   <!-- JavaScript -->
-  <script src="./js/function.js"></script>
 </body>
 </html>
+ 
