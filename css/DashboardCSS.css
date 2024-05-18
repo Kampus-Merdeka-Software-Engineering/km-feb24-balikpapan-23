@@ -23,35 +23,42 @@
   height: 10px;
   padding: 80px;
   font-family: 'Times New Roman', Times, serif;
-  color: #ffffff;
-  background-color: #ca8bea;
+  color: black;
+  background-color: #D57149;
   display: flex;
   justify-content: space-between;
 }
+
+/* Styling untuk navbar yang aktif */
+.list-menu li a:active {
+  background-color: #D57149;
+  color: white;
+}
+
 
 /*  styling filter bulan */
 
 .sort-container {
   display: flex;
-  background-color: #ca8bea;
+  background-color: #F5DAD2;
   display: flex;
 }
 
 .filter-container {
   display: flex;
-  background-color: #ca8bea;
+  background-color: #F5DAD2;
   display: flex;
 }
 
 .filter-month {
   flex: 1; /* Atur lebar filter sidebar */
-  background-color: #ca8bea; /* Warna latar belakang filter sidebar */
+  background-color: #F5DAD2; /* Warna latar belakang filter sidebar */
   padding: 10px;
 }
 
 .filter-product {
   display: flex;
-  background-color: #ca8bea;
+  background-color: #F5DAD2;
   display: flex;
 }
 
@@ -59,11 +66,12 @@
 .insidetit{
   width: 100%;
   height: 60px;
-  background-color: #ca8bea;
+  background-color: #F5DAD2;
   text-align: center;
-  color: aliceblue;
+  color: black;
   font-size: 26px;
   line-height: 60px; /* Adjusted to match the height of the element */
+  font-weight: bold;
 }
 
 
@@ -81,25 +89,27 @@
 }
 
 .list-menu li hover{
-  background-color:#5d217b; ;
+  background-color:#D57149; ;
 }
 
 .list-menu li hover{
-  color: azure;
+  color: #D57149;
 }
 
 .list-menu li a{
   text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
 
-/* styyling konten dashboard  */
+/* styling konten dashboard  */
 .hero-section {
   width: 100%;
   min-height: 700px;
   padding: 20px 80px;
-  background-color:#a105ef; ;
+  background-color:#D57149; ;
   font-family: 'Times New Roman', Times, serif;
-  color: #ffffff;
+  color: black;
   display: flex;
   flex-wrap: wrap;
 }
@@ -124,16 +134,18 @@
 .content{
   width: 100%;
   height: 100%;
-  background-color:#a105ef;
+  background-color:#F5DAD2;
 
 }
 
 /* footer  */
 footer{
   width: 100%;
-  height: 20px;
-  background-color: #ca8bea;
-
+  height: 30px;
+  background-color: #F5DAD2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
