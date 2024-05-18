@@ -1,72 +1,52 @@
 //masih beta/contoh
 document.addEventListener('DOMContentLoaded', (event) => {
-    // Fetch the JSON data from the online source
-    fetch('https://gist.githubusercontent.com/ElckyMT/3d929c20aac30bfebedfc5f09785b2fa/raw/4f4c20d9aff7079d23568ac684c7e59dd5585080/datatest2.json')
-        .then(response => response.json())
-        .then(jsonData => {
-            const data = jsonData.data;
-
-            // Aggregate total revenue and quantity
-            let totalRevenue = 0;
-            let totalQuantity = 0;
-            const revenueBySize = { small: 0, medium: 0, large: 0 }; // Placeholder for sizes if needed
-
-            data.forEach(item => {
-                totalRevenue += item.revenue;
-                totalQuantity += item.quantity;
-
-                // Example revenue by size aggregation logic (if size data was available)
-                // if (item.size === 'small') revenueBySize.small += item.revenue;
-                // else if (item.size === 'medium') revenueBySize.medium += item.revenue;
-                // else if (item.size === 'large') revenueBySize.large += item.revenue;
-            });
-
-            // Display aggregated Revenue
-            document.getElementById('revenue').textContent = totalRevenue;
-
-            // Display aggregated Quantity
-            document.getElementById('quantity').textContent = totalQuantity;
-
-            // Display Top 5 Products by revenue
-            const topProductsList = document.getElementById('top_products');
-            topProductsList.innerHTML = ''; // Clear previous list if any
-
-            const topProducts = data.sort((a, b) => b.revenue - a.revenue).slice(0, 5);
-            topProducts.forEach(product => {
-                const listItem = document.createElement('li');
-                listItem.textContent = product.product;
-                topProductsList.appendChild(listItem);
-            });
-
-            // Display Revenue by Size (example placeholder text, update as per actual data)
-            const revenueBySizeText = `Small: ${revenueBySize.small}, Medium: ${revenueBySize.medium}, Large: ${revenueBySize.large}`;
-            document.getElementById('revenue_by_size').textContent = revenueBySizeText;
-
-            // Event listener for sorting
-            document.getElementById('sort-option').addEventListener('change', function() {
-                const sortValue = this.value;
-                sortData(sortValue, data);
-            });
-
-            // Event listener for month filtering
-            document.getElementById('filter-month').addEventListener('change', function() {
-                const month = this.value;
-                filterDataByMonth(month, data);
-            });
-
-            // Event listener for product filtering
-            document.getElementById('filter-product').addEventListener('change', function() {
-                const product = this.value;
-                filterDataByProduct(product, data);
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-
-    console.log("JavaScript is connected and loaded!");
+    // Fetch the JSON data from multiple online sources
+    Promise.all([
+        fetch('https://gist.githubusercontent.com/ElckyMT/a997876ccbaa45dae38bfb9b08eea7b5/raw/f7b0734a080a4319f5ade8922605fe5534a48034/customer.json').then(res => res.json()),
+        fetch('https://gist.githubusercontent.com/ElckyMT/03de6d48068bdfdea58a6fb947e3a4f3/raw/a018ba618368bbef1e39c2430166fa49f1a11568/quantity.json').then(res => res.json()),
+        fetch('https://gist.githubusercontent.com/ElckyMT/30419f4c641210d6dddd73aeb1181425/raw/ca34891140e8d400e16d29a4564a133a54360d54/revenue.json').then(res => res.json()),
+        fetch('https://gist.githubusercontent.com/ElckyMT/54c447b88edddde5fcd18a12bdbf9a13/raw/c887b30b29bebbe7b3c4ff18246c7a7d7390bbda/top_5.json').then(res => res.json())
+    ]).then(([customerData, quantityData, revenueData, topProductsData]) => {
+        // Update dashboard sections
+        updateDashboard(customerData, quantityData, revenueData, topProductsData);
+    }).catch(error => {
+        console.error('Error fetching data:', error);
+    });
 });
 
+function updateDashboard(customerData, quantityData, revenueData, topProductsData) {
+    // Update Customer Section
+    const customerElement = document.getElementById('customer');
+    const totalCustomers = customerData.Customer_Month.reduce((acc, item) => acc + item.Customer, 0);
+    customerElement.textContent = `Total Customers: ${totalCustomers}`;
+
+    // Update Quantity Section
+    const quantityElement = document.getElementById('quantity');
+    const totalQuantity = quantityData.Quantity_Month.reduce((acc, item) => acc + item.quantity, 0);
+    quantityElement.textContent = `Total Quantity: ${totalQuantity}`;
+
+    // Update Revenue Section
+    const revenueElement = document.getElementById('revenue');
+    const totalRevenue = revenueData.Revenue_Month.reduce((acc, item) => acc + item.Revenue, 0);
+    revenueElement.textContent = `Total Revenue: $${totalRevenue}`;
+
+    // Update Top Products Section
+    const topProductsElement = document.getElementById('top_products');
+    topProductsElement.innerHTML = ''; // Clear previous entries
+
+    // Assuming you want to display data for a specific month, e.g., "Jan"
+    const janData = topProductsData.Top5_Month.find(monthData => monthData.Month === "Jan");
+    if (janData) {
+        Object.entries(janData).forEach(([key, value]) => {
+            if (key !== "Month") { // Exclude the "Month" key
+                const productElement = document.createElement('li');
+                productElement.textContent = `${key}: $${value}`;
+                topProductsElement.appendChild(productElement);
+            }
+        });
+    }
+}
+/*
 function sortData(sortValue, data) {
     let sortedData = [...data]; // Create a copy of the data array
     switch (sortValue) {
@@ -118,4 +98,5 @@ function updateDisplay(data) {
         li.textContent = `${item.product} - $${item.revenue}`;
         topProductsElement.appendChild(li);
     });
-}
+} */ 
+
