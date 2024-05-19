@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     ]).then(([customerRes, quantityRes, revenueRes, topProductsRes]) => {
         customerData = customerRes;
         quantityData = quantityRes;
+        revenue = quantityRes;
         revenueData = revenueRes;
         topProductsData = topProductsRes;
 
@@ -95,15 +96,15 @@ function updateDashboard(customerData, quantityData, revenueData, topProductsDat
             }
         }
     });
-    
+
     // Update Revenue Section
     const revenueElement = document.getElementById('revenue');
     const totalRevenue = revenueData.Revenue_Month.reduce((acc, item) => acc + item.Revenue, 0);
     revenueElement.textContent = `Total Revenue: $${totalRevenue}`;
-    
+
     // Destroy previous chart if it exists
     if (revenueChart) revenueChart.destroy();
-    
+
     // Revenue Chart
     const revenueCtx = document.getElementById('revenueChart').getContext('2d');
     revenueChart = new Chart(revenueCtx, {
@@ -138,32 +139,19 @@ function updateDashboard(customerData, quantityData, revenueData, topProductsDat
             }
         }
     });
-    
+
     // Update Top Products Section
-    const topProductsElement = document.getElementById('top_products');
-    topProductsElement.innerHTML = ''; // Clear previous entries
-    
-    // Assuming you want to display data for a specific month, e.g., "Jan"
     const topProductsForMonth = topProductsData.Top5_Month.length > 0 ? topProductsData.Top5_Month[0] : null;
-    if (topProductsForMonth) {
-        Object.entries(topProductsForMonth).forEach(([key, value]) => {
-            if (key !== "Month") { // Exclude the "Month" key
-                const productElement = document.createElement('li');
-                productElement.textContent = `${key}: $${value}`;
-                topProductsElement.appendChild(productElement);
-            }
-        });
-    }
-    
+
     // Destroy previous chart if it exists
     if (topProductsChart) topProductsChart.destroy();
-    
+
     // Top Products Chart
     const topProductsCtx = document.getElementById('topProductsChart').getContext('2d');
     topProductsChart = new Chart(topProductsCtx, {
-        type: 'doughnut',
+        type: 'bar',
         data: {
-            labels: topProductsForMonth ? Object.keys(topProductsForMonth).filter(key => key !== 'Month') : [],
+            labels: topProductsForMonth ? Object.keys (topProductsForMonth).filter(key => key !== 'Month') : [],
             datasets: [{
                 data: topProductsForMonth ? Object.values(topProductsForMonth).filter(value => typeof value === 'number') : [],
                 backgroundColor: [
@@ -180,5 +168,47 @@ function updateDashboard(customerData, quantityData, revenueData, topProductsDat
             maintainAspectRatio: false
         }
     });
-    }
+}
 
+function updateRevenueChart(selectedMonth) {
+    const filteredRevenueData = revenueData.Revenue_Month.filter(item => item.Month === selectedMonth);
+    const revenueElement = document.getElementById('revenue');
+    const totalRevenue = filteredRevenueData.reduce((acc, item) => acc + item.Revenue, 0);
+    revenueElement.textContent = `Total Revenue: $${totalRevenue}`;
+
+    if (revenueChart) revenueChart.destroy();
+
+    const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+    revenueChart = new Chart(revenueCtx, {
+        type: 'bar',
+        data: {
+            labels: filteredRevenueData.map(item => item.Month),
+            datasets: [{
+                label: 'Total Revenue',
+                data: filteredRevenueData.map(item => item.Revenue),
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    'rgba(153, 102, 255, 0.5)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}

@@ -43,13 +43,35 @@
     <div class="insidetit">
       PIZZA SALES 2015
     </div>
-    <div class="list-chart">
-      <div class="content">
-        <h3>Revenue</h3>
-        <p id="revenue"></p>
-        <canvas id="revenueChart"></canvas>
-      </div>
+  </div>
+  
+  <div class="list-chart">
+    <div class="content">
+      <h3>Revenue</h3>
+      <div id="month-buttons">
+        <button onclick="updateRevenueChart('Jan')">January</button>
+        <button onclick="updateRevenueChart('Feb')">February</button>
+        <button onclick="updateRevenueChart('Mar')">March</button>
+        <button onclick="updateRevenueChart('Apr')">April</button>
+        <button onclick="updateRevenueChart('May')">May</button>
+        <button onclick="updateRevenueChart('Jun')">June</button>
+        <button onclick="updateRevenueChart('Jul')">July</button>
+        <button onclick="updateRevenueChart('Aug')">August</button>
+        <button onclick="updateRevenueChart('Sep')">September</button>
+        <button onclick="updateRevenueChart('Oct')">October</button>
+        <button onclick="updateRevenueChart('Nov')">November</button>
+        <button onclick="updateRevenueChart('Dec')">December</button>
     </div>
+    <div id="revenue">
+      Total Revenue: $<span id="total-revenue">0</span>
+  </div>
+      <p id="revenue"></p>
+      <canvas id="revenueChart"></canvas>
+    </div>
+  </div>
+
+
+
     <div class="list-chart">
       <div class="content">
         <h4>Quantity</h4>
@@ -57,6 +79,8 @@
         <canvas id="quantityChart"></canvas>
       </div>
     </div>
+
+
     <div class="list-chart">
       <div class="content">
         <h5>Customer</h5>
@@ -64,6 +88,8 @@
         <canvas id="customerChart"></canvas>
       </div>
     </div>
+
+
     <div class="list-chart">
       <div class="content">
         <h6>Top 5 Products</h6>
