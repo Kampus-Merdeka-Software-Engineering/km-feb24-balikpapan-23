@@ -1,24 +1,23 @@
 /* Global Styles */
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 /* styling font pada header */
- h1{
+h1 {
   font-size: 32px;
+}
 
- }
-
-/* ukuran gambar pada header  */
-.img{
-  height: 10px; 
+/* ukuran gambar pada header */
+.img {
+  height: 10px;
   width: 25%;
 }
 
-/*  styling bar navigasi */
-.navbar-wrapper{
+/* styling bar navigasi */
+.navbar-wrapper {
   width: 100%;
   height: 10px;
   padding: 80px;
@@ -35,111 +34,107 @@
   color: white;
 }
 
-
-/*  styling filter bulan */
-
+/* styling filter bulan */
 .sort-container {
   display: flex;
   background-color: #F5DAD2;
-  display: flex;
 }
 
 .filter-container {
   display: flex;
   background-color: #F5DAD2;
-  display: flex;
 }
 
 .filter-month {
-  flex: 1; /* Atur lebar filter sidebar */
-  background-color: #F5DAD2; /* Warna latar belakang filter sidebar */
+  flex: 1;
+  background-color: #F5DAD2;
   padding: 10px;
 }
 
 .filter-product {
   display: flex;
   background-color: #F5DAD2;
-  display: flex;
 }
 
-/* styling title  */
-.insidetit{
+/* styling title */
+.insidetit {
   width: 100%;
   height: 60px;
   background-color: #F5DAD2;
   text-align: center;
   color: black;
   font-size: 26px;
-  line-height: 60px; /* Adjusted to match the height of the element */
+  line-height: 60px;
   font-weight: bold;
 }
 
-
-
-/*  styling background */
+/* styling background */
 .list-menu {
   width: auto;
   height: auto;
   font-size: 24px;
 }
 
-.list-menu li{
+.list-menu li {
   display: inline-block;
   cursor: pointer;
 }
 
-.list-menu li hover{
-  background-color:#D57149; ;
+.list-menu li:hover {
+  background-color: #D57149;
 }
 
-.list-menu li hover{
+.list-menu li:hover {
   color: #D57149;
 }
 
-.list-menu li a{
+.list-menu li a {
   text-decoration: none;
   color: black;
   font-weight: bold;
 }
 
-/* styling konten dashboard  */
+/* styling konten dashboard */
 .hero-section {
   width: 100%;
   min-height: 700px;
   padding: 20px 80px;
-  background-color:#D57149; ;
+  background-color: #D57149;
   font-family: 'Times New Roman', Times, serif;
   color: black;
   display: flex;
   flex-wrap: wrap;
 }
 
-
-
-/* background belakang konten  */
+/* background belakang konten */
 .list-chart {
   width: 50%;
   height: 400px;
- /*background-color:#ff69b4;
- /* border: 1px solid black;*/
-  /*border: 2px solid #ff69b4; /* Ukuran garis: 2px, warna: merah muda */
- /* border-width: 0px 0px 0px 0px; /* Membuat garis diagonal dari kiri atas ke kanan bawah */
   padding: 16px;
   background-image: repeating-linear-gradient(to right, #ffffff, #ffffff 10px, #fff 10px, #fff 20px);
   background-size: 20px 100%;
-  border-width: 2px 2px 0 0
+  border-width: 2px 2px 0 0;
 }
 
 /* styling isi kotak dashboard */
-.content{
+.content {
   width: 100%;
   height: 100%;
-  background-color:#F5DAD2;
-
+  background-color: #F5DAD2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* footer  */
-footer{
+/* styling top products chart */
+#topProductsChart {
+  width: 100%;
+  height: auto;
+  max-height: 400px; /* Set a maximum height */
+}
+
+/* footer */
+footer {
   width: 100%;
   height: 30px;
   background-color: #F5DAD2;
@@ -148,49 +143,53 @@ footer{
   align-items: center;
 }
 
-
-
 /* Responsifitas page */
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  .navbar-wrapper, .hero-section, .list-menu, .filter-container, .filter-product,.sort-container, {
-    flex-direction: row; /* Ensures elements are aligned horizontally */
-    justify-content: space-between; /* Distributes space between elements */
-}
-.filter-container, .filter-product, .sort-container {
-    flex: 1; /* Allows both filters to take equal space */
-    padding: 10px; /* Adds padding for better spacing */
-}
-.hero-section, .list-chart {
+  .navbar-wrapper, .hero-section, .list-menu, .filter-container, .filter-product, .sort-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .filter-container, .filter-product, .sort-container {
+    flex: 1;
+    padding: 10px;
+  }
+  .hero-section, .list-chart {
     padding: 15px;
-}
-.title, .list-menu li {
+  }
+  .title, .list-menu li {
     font-size: 20px;
-}
-.list-chart {
+  }
+  .list-chart {
     width: 100%;
     height: auto;
-}
+  }
+  #topProductsChart {
+    height: 200px; /* Adjust the height as needed */
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px to 900px) */
 @media only screen and (min-width: 601px) and (max-width: 900px) {
-    .navbar-wrapper, .hero-section, .list-menu, .filter-container, .filter-product, .sort-container {
-        flex-direction: row; /* Ensures elements are aligned horizontally */
-        justify-content: space-between; /* Distributes space between elements */
-    }
-    .filter-container, .filter-product,.sort-container {
-        flex: 1; /* Allows both filters to take equal space */
-        padding: 10px; /* Adds padding for better spacing */
-    }
-    .hero-section, .list-chart {
-        padding: 15px;
-    }
-    .title, .list-menu li {
-        font-size: 20px;
-    }
-    .list-chart {
-        width: 100%;
-        height: auto;
-    }
+  .navbar-wrapper, .hero-section, .list-menu, .filter-container, .filter-product, .sort-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .filter-container, .filter-product, .sort-container {
+    flex: 1;
+    padding: 10px;
+  }
+  .hero-section, .list-chart {
+    padding: 15px;
+  }
+  .title, .list-menu li {
+    font-size: 20px;
+  }
+  .list-chart {
+    width: 100%;
+    height: auto;
+  }
+  #topProductsChart {
+    height: 300px; /* Perbaikan bugnya */
+  }
 }
