@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     ]).then(([customerRes, quantityRes, revenueRes, topProductsRes]) => {
         customerData = customerRes;
         quantityData = quantityRes;
-        revenue = quantityRes;
         revenueData = revenueRes;
         topProductsData = topProductsRes;
 
@@ -66,10 +65,19 @@ function updateDashboard(customerData, quantityData, revenueData, topProductsDat
         }
     });
 
+    // Update Total Customers Section
+    const customerElement = document.getElementById('customer');
+    if (customerElement) {
+        const totalCustomers = customerData.Customer_Month.reduce((acc, item) => acc + item.Customer, 0);
+        customerElement.textContent = `Total Customers: ${totalCustomers}`;
+    }
+
     // Update Quantity Section
     const quantityElement = document.getElementById('quantity');
-    const totalQuantity = quantityData.Quantity_Month.reduce((acc, item) => acc + item.quantity, 0);
-    quantityElement.textContent = `Total Quantity: ${totalQuantity}`;
+    if (quantityElement) {
+        const totalQuantity = quantityData.Quantity_Month.reduce((acc, item) => acc + item.quantity, 0);
+        quantityElement.textContent = `Total Quantity: ${totalQuantity}`;
+    }
 
     // Destroy previous chart if it exists
     if (quantityChart) quantityChart.destroy();
@@ -98,9 +106,11 @@ function updateDashboard(customerData, quantityData, revenueData, topProductsDat
     });
 
     // Update Revenue Section
-    const revenueElement = document.getElementById('revenue');
-    const totalRevenue = revenueData.Revenue_Month.reduce((acc, item) => acc + item.Revenue, 0);
-    revenueElement.textContent = `Total Revenue: $${totalRevenue}`;
+    const revenueElement = document.getElementById('total-revenue');
+    if (revenueElement) {
+        const totalRevenue = revenueData.Revenue_Month.reduce((acc, item) => acc + item.Revenue, 0);
+        revenueElement.textContent = totalRevenue;
+    }
 
     // Destroy previous chart if it exists
     if (revenueChart) revenueChart.destroy();
@@ -151,7 +161,7 @@ function updateDashboard(customerData, quantityData, revenueData, topProductsDat
     topProductsChart = new Chart(topProductsCtx, {
         type: 'bar',
         data: {
-            labels: topProductsForMonth ? Object.keys (topProductsForMonth).filter(key => key !== 'Month') : [],
+            labels: topProductsForMonth ? Object.keys(topProductsForMonth).filter(key => key !== 'Month') : [],
             datasets: [{
                 data: topProductsForMonth ? Object.values(topProductsForMonth).filter(value => typeof value === 'number') : [],
                 backgroundColor: [
@@ -172,9 +182,9 @@ function updateDashboard(customerData, quantityData, revenueData, topProductsDat
 
 function updateRevenueChart(selectedMonth) {
     const filteredRevenueData = revenueData.Revenue_Month.filter(item => item.Month === selectedMonth);
-    const revenueElement = document.getElementById('revenue');
+    const revenueElement = document.getElementById('total-revenue');
     const totalRevenue = filteredRevenueData.reduce((acc, item) => acc + item.Revenue, 0);
-    revenueElement.textContent = `Total Revenue: $${totalRevenue}`;
+    revenueElement.textContent = totalRevenue;
 
     if (revenueChart) revenueChart.destroy();
 
