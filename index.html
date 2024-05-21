@@ -49,18 +49,20 @@
     <div class="content">
       <h3>Revenue</h3>
       <div id="month-buttons">
-        <button onclick="updateRevenueChart('Jan')">January</button>
-        <button onclick="updateRevenueChart('Feb')">February</button>
-        <button onclick="updateRevenueChart('Mar')">March</button>
-        <button onclick="updateRevenueChart('Apr')">April</button>
-        <button onclick="updateRevenueChart('May')">May</button>
-        <button onclick="updateRevenueChart('Jun')">June</button>
-        <button onclick="updateRevenueChart('Jul')">July</button>
-        <button onclick="updateRevenueChart('Aug')">August</button>
-        <button onclick="updateRevenueChart('Sep')">September</button>
-        <button onclick="updateRevenueChart('Oct')">October</button>
-        <button onclick="updateRevenueChart('Nov')">November</button>
-        <button onclick="updateRevenueChart('Dec')">December</button>
+        <select onchange="updateRevenueChart(this.value)">
+          <option value="Jan">January</option>
+          <option value="Feb">February</option>
+          <option value="Mar">March</option>
+          <option value="Apr">April</option>
+          <option value="May">May</option>
+          <option value="Jun">June</option>
+          <option value="Jul">July</option>
+          <option value="Aug">August</option>
+          <option value="Sep">September</option>
+          <option value="Oct">October</option>
+          <option value="Nov">November</option>
+          <option value="Dec">December</option>
+        </select>
       </div>
       <div id="revenue">
         Total Revenue: $<span id="total-revenue">0</span>
@@ -81,9 +83,27 @@
     <div class="content">
       <h5>Customer</h5>
       <p id="customer">Total Customers: 0</p>
+      <div id="customer-month-buttons">
+        <select onchange="updateCustomerChart(this.value)">
+          <option value="Jan">January</option>
+          <option value="Feb">February</option>
+          <option value="Mar">March</option>
+          <option value="Apr">April</option>
+          <option value="May">May</option>
+          <option value="Jun">June</option>
+          <option value="Jul">July</option>
+          <option value="Aug">August</option>
+          <option value="Sep">September</option>
+          <option value="Oct">October</option>
+          <option value="Nov">November</option>
+          <option value="Dec">December</option>
+        </select>
+      </div>
       <canvas id="customerChart"></canvas>
     </div>
   </div>
+
+
   <div class="list-chart">
     <div class="content">
       <h6>Top 5 Products</h6>

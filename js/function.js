@@ -157,29 +157,32 @@ function updateDashboard(customerData, quantityData, revenueData, topProductsDat
     if (topProductsChart) topProductsChart.destroy();
 
     // Top Products Chart
-    const topProductsCtx = document.getElementById('topProductsChart').getContext('2d');
-    topProductsChart = new Chart(topProductsCtx, {
-        type: 'bar',
-        data: {
-            labels: topProductsForMonth ? Object.keys(topProductsForMonth).filter(key => key !== 'Month') : [],
-            datasets: [{
-                data: topProductsForMonth ? Object.values(topProductsForMonth).filter(value => typeof value === 'number') : [],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.5)',
-                    'rgba(255, 159, 64, 0.5)',
-                    'rgba(255, 205, 86, 0.5)',
-                    'rgba(75, 192, 192, 0.5)',
-                    'rgba(153, 102, 255, 0.5)'
-                ]
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false
-        }
-    });
+// Top Products Chart
+const topProductsCtx = document.getElementById('topProductsChart').getContext('2d');
+topProductsChart = new Chart(topProductsCtx, {
+    type: 'bar',
+    data: {
+        labels: topProductsForMonth ? Object.keys(topProductsForMonth).filter(key => key !== 'Month') : [],
+        datasets: [{
+            label: 'Top Products', // Change this line
+            data: topProductsForMonth ? Object.values(topProductsForMonth).filter(value => typeof value === 'number') : [],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(255, 159, 64, 0.5)',
+                'rgba(255, 205, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)'
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false
+    }
+});
 }
 
+//update revenue
 function updateRevenueChart(selectedMonth) {
     const filteredRevenueData = revenueData.Revenue_Month.filter(item => item.Month === selectedMonth);
     const revenueElement = document.getElementById('total-revenue');
@@ -210,6 +213,38 @@ function updateRevenueChart(selectedMonth) {
                     'rgba(75, 192, 192, 1)',
                     'rgba(153, 102, 255, 1)'
                 ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+//update customer
+function updateCustomerChart(selectedMonth) {
+    const filteredCustomerData = customerData.Customer_Month.filter(item => item.Month === selectedMonth);
+    const customerElement = document.getElementById('customer');
+    const totalCustomers = filteredCustomerData.reduce((acc, item) => acc + item.Customer, 0);
+    customerElement.textContent = `Total Customers: ${totalCustomers}`;
+
+    if (customerChart) customerChart.destroy();
+
+    const customerCtx = document.getElementById('customerChart').getContext('2d');
+    customerChart = new Chart(customerCtx, {
+        type: 'bar',
+        data: {
+            labels: filteredCustomerData.map(item => item.Month),
+            datasets: [{
+                label: 'Total Customers',
+                data: filteredCustomerData.map(item => item.Customer),
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
                 borderWidth: 1
             }]
         },
