@@ -8,6 +8,7 @@
 /* styling font pada header */
 h1 {
   font-size: 32px;
+  margin-left: 30px;
 }
 
 /* ukuran gambar pada header */
@@ -19,11 +20,11 @@ h1 {
 /* styling bar navigasi */
 .navbar-wrapper {
   width: 100%;
-  height: 10px;
-  padding: 80px;
+  height: 60px; /* Increased height */
+  padding: 20px; /* Reduced padding */
   font-family: 'Times New Roman', Times, serif;
   color: black;
-  background-color: #D57149;
+  background-color:  #F5DAD2;
   display: flex;
   justify-content: space-between;
 }
@@ -34,15 +35,47 @@ h1 {
   color: white;
 }
 
-/* styling filter bulan */
-.sort-container {
-  display: flex;
-  background-color: #F5DAD2;
-}
-
+/* styling filter sort by */
 .filter-container {
   display: flex;
-  background-color: #F5DAD2;
+  align-items: center;
+  background-color: #D57149; /* Background color of the container */
+  padding: 10px;
+  border-radius: 0; /* Remove rounded corners */
+}
+
+/* Style the label */
+.filter-container label {
+  color: white; /* Text color for the label */
+  margin-right: 10px; /* Space between label and dropdown */
+}
+
+/* Style the select element */
+.filter-container select {
+  background-color: #A33E2A; /* Background color of the dropdown */
+  color: white; /* Text color */
+  border: none; /* Remove default border */
+  padding: 10px; /* Padding inside the dropdown */
+  border-radius: 0; /* Remove rounded corners */
+  appearance: none; /* Remove default arrow */
+  -webkit-appearance: none; /* Remove default arrow in Safari */
+  -moz-appearance: none; /* Remove default arrow in Firefox */
+  position: relative;
+}
+
+/* Custom arrow for the select element */
+.filter-container select::after {
+  content: '▼'; /* Custom arrow */
+  font-size: 12px;
+  color: white;
+  position: absolute;
+  right: 10px;
+  pointer-events: none; /* Prevent click on the arrow */
+}
+
+/* Remove focus outline */
+.filter-container select:focus {
+  outline: none;
 }
 
 .filter-month {
