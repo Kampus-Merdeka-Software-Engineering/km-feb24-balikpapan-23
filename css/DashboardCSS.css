@@ -78,17 +78,85 @@ h1 {
   outline: none;
 }
 
-.filter-month {
-  flex: 1;
-  background-color: #F5DAD2;
-  padding: 10px;
-}
-
-.filter-product {
+/*styling fiter didalam chart revenue */
+#month-buttons {
   display: flex;
-  background-color: #F5DAD2;
+  align-items: center;
+  background-color: #D57149; /* Background color of the container */
+  padding: 10px;
+  border-radius: 0; /* Remove rounded corners */
+}
+/* Style the select element Revenue*/
+#month-buttons {
+  display: flex;
+  align-items: center;
+  background-color: #D57149; /* Background color of the container */
+  padding: 2px; /* Further reduced padding to make the container smaller */
+  border-radius: 0; /* Remove rounded corners */
+}
+/* Style the select elementRevenue */
+#month-buttons select {
+  background-color: #A33E2A; /* Background color of the dropdown */
+  color: white; /* Text color */
+  border: none; /* Remove default border */
+  padding: 2px; /* Further reduced padding to make the dropdown smaller */
+  font-size: 10px; /* Further reduced font size */
+  border-radius: 0; /* Remove rounded corners */
+  appearance: none; /* Remove default arrow */
+  -webkit-appearance: none; /* Remove default arrow in Safari */
+  -moz-appearance: none; /* Remove default arrow in Firefox */
+  position: relative;
+}
+/* Custom arrow for the select element Revenue */
+#month-buttons select::after {
+  content: '▼'; /* Custom arrow */
+  font-size: 10px; /* Adjusted font size for the arrow */
+  color: white;
+  position: absolute;
+  right: 5px; /* Adjusted position for the arrow */
+  pointer-events: none; /* Prevent click on the arrow */
+}
+/* Remove focus outline Revenue */
+#month-buttons select:focus {
+  outline: none;
 }
 
+
+/*styling fiter didalam chart Customer */
+#customer-month-buttons {
+  display: flex;
+  align-items: center;
+  background-color: #D57149; /* Background color of the container */
+  padding: 2px; /* Reduced padding to make the container smaller */
+  border-radius: 0; /* Remove rounded corners */
+}
+/* Style the select element */
+#customer-month-buttons select {
+  background-color: #A33E2A; /* Background color of the dropdown */
+  color: white; /* Text color */
+  border: none; /* Remove default border */
+  padding: 2px; /* Reduced padding to make the dropdown smaller */
+  font-size: 10px; /* Reduced font size */
+  border-radius: 0; /* Remove rounded corners */
+  appearance: none; /* Remove default arrow */
+  -webkit-appearance: none; /* Remove default arrow in Safari */
+  -moz-appearance: none; /* Remove default arrow in Firefox */
+  position: relative;
+}
+/* Custom arrow for the select element */
+#customer-month-buttons select::after {
+  content: '▼'; /* Custom arrow */
+  font-size: 10px; /* Adjusted font size for the arrow */
+  color: white;
+  position: absolute;
+  right: 5px; /* Adjusted position for the arrow */
+  pointer-events: none; /* Prevent click on the arrow */
+}
+
+/* Remove focus outline */
+#customer-month-buttons select:focus {
+  outline: none;
+}
 /* styling title */
 .insidetit {
   width: 100%;
