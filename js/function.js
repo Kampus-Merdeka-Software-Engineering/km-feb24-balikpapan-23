@@ -26,10 +26,10 @@ function handleSort() {
 document.addEventListener('DOMContentLoaded', (event) => {
     // Fetch the JSON data from multiple online sources
     Promise.all([
-        fetch('https://gist.githubusercontent.com/ElckyMT/a997876ccbaa45dae38bfb9b08eea7b5/raw/f7b0734a080a4319f5ade8922605fe5534a48034/customer.json').then(res => res.json()),
-        fetch('https://gist.githubusercontent.com/ElckyMT/03de6d48068bdfdea58a6fb947e3a4f3/raw/7d1fc284ce579a2146f0d102157f4db32a12f1a2/quantity.json').then(res => res.json()),
-        fetch('https://gist.githubusercontent.com/ElckyMT/30419f4c641210d6dddd73aeb1181425/raw/ca34891140e8d400e16d29a4564a133a54360d54/revenue.json').then(res => res.json()),
-        fetch('https://gist.githubusercontent.com/ElckyMT/54c447b88edddde5fcd18a12bdbf9a13/raw/c887b30b29bebbe7b3c4ff18246c7a7d7390bbda/top_5.json').then(res => res.json())
+        fetch('../json/data1.json').then(res => res.json()),
+        fetch('../json/data2.json').then(res => res.json()),
+        fetch('../json/data3.json').then(res => res.json()),
+        fetch('../json/data4.json').then(res => res.json())
     ]).then(([customerRes, quantityRes, revenueRes, topProductsRes]) => {
         customerData = customerRes;
         quantityData = quantityRes;
