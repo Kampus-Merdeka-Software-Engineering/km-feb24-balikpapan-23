@@ -212,7 +212,7 @@ function updateDashboard(customerData, quantityData, revenueData, topProductsDat
 // Top Products Chart
 const topProductsCtx = document.getElementById('topProductsChart').getContext('2d');
 topProductsChart = new Chart(topProductsCtx, {
-    type: 'bar',
+    type: 'pie',
     data: {
         labels: topProductsForMonth ? Object.keys(topProductsForMonth).filter(key => key !== 'Month') : [],
         datasets: [{
