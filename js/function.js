@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
+//menampilkan tabel
 function populateLogSalesTable() {
     const tableBody = document.querySelector('#dataRows');
     if (!tableBody) {
@@ -74,7 +75,7 @@ function populateLogSalesTable() {
         tableBody.appendChild(row);
     });
 }
-
+//pindah2 page
 function updatePaginationControls() {
     const pageInfo = document.getElementById('pageInfo');
     const totalPages = Math.ceil(logSalesData.length / rowsPerPage);
