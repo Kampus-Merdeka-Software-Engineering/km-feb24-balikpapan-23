@@ -9,13 +9,13 @@
   <script src="./js/function.js" defer></script>
 </head>
 <body>
-  <!-- header -->
-  <div class="img">
-    <img src="https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/company-logo/a32f81155cd0d4f16d36aef74f7d2644.png" style="width: 50px; height: 50px;">
-  </div>
-
   <!-- Bar Navigasi -->
   <nav class="navbar-wrapper">
+    <div class="imghead">
+      <div class="img">
+        <img src="https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/company-logo/a32f81155cd0d4f16d36aef74f7d2644.png" style="width: 50px; height: 50px;">
+      </div>
+    </div>
     <h1>Dashboard TIM 23</h1>
     <ul class="list-menu">
       <li><a href="#home" id="home">Home</a></li>
@@ -114,31 +114,36 @@
       <canvas id="topProductsChart"></canvas>
     </div>
   </div>
+
+         <!-- Pagination controls -->
+  <div id="pagination">
+          <button id="prevPage" onclick="changePage(-1)">Previous</button>
+          <span id="pageInfo"></span>
+          <button id="nextPage" onclick="changePage(1)">Next</button>
+      </div>
+      </div>
+  <div class="tabledata">
+    <!-- Tabel -->
+    <h6>100 penjualan</h6>
+    <table>
+      <thead>
+          <tr>
+              <th>DateTime</th>
+              <th>Name</th>
+              <th>Size</th>
+              <th>Quantity</th>
+              <th>Price</th>
+          </tr>
+      </thead>
+      <tbody id="dataRows">
+          <!-- Dynamic rows will be inserted here -->
+      </tbody>
+    </table>
+    
+
 </section>
     
-<!-- Tabel -->
-<table>
-  <h6>100 penjualan</h6>
-  <thead>
-      <tr>
-          <th>DateTime</th>
-          <th>Name</th>
-          <th>Size</th>
-          <th>Quantity</th>
-          <th>Price</th>
-      </tr>
-  </thead>
-  <tbody id="dataRows">
-      <!-- Dynamic rows will be inserted here -->
-  </tbody>
-</table>
 
-   <!-- Pagination controls -->
-   <div id="pagination">
-    <button id="prevPage" onclick="changePage(-1)">Previous</button>
-    <span id="pageInfo"></span>
-    <button id="nextPage" onclick="changePage(1)">Next</button>
-</div>
 
 <!-- footer -->
 <footer class="footer">

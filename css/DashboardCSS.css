@@ -7,8 +7,8 @@
 
 /* styling font pada header */
 h1 {
-  font-size: 32px;
-  margin-left: 30px;
+  font-size: 40px;
+  margin-left: 15%;
 }
 
 /* ukuran gambar pada header */
@@ -174,6 +174,7 @@ h1 {
   width: auto;
   height: auto;
   font-size: 24px;
+  background-size: 100% 100%;
 }
 
 .list-menu li {
@@ -212,7 +213,7 @@ h1 {
   width: 50%;
   height: 400px;
   padding: 16px;
-  background-image: repeating-linear-gradient(to right, #ffffff, #ffffff 10px, #fff 10px, #fff 20px);
+  background-color: white;
   background-size: 20px 100%;
   border-width: 2px 2px 0 0;
 }
@@ -230,9 +231,77 @@ h1 {
 /* styling top products chart */
 #topProductsChart {
   width: 100%;
-  height: auto;
+  height: 100%;
   max-height: 400px; /* Set a maximum height */
 }
+
+/* styling tabel*/
+.tabledata {
+  width: 100%;
+  height: 400px; /* Set the height to match the chart section */
+  background-color: #ffffff;
+  margin-top: 15px;
+  border-collapse: collapse; /* Ensures borders between cells are merged */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Adds subtle shadow for depth */
+  overflow-y: auto; /* Adds vertical scroll if content overflows */
+}
+
+.tabledata th, .tabledata td {
+  padding: 12px; /* Increased padding for better spacing */
+  text-align: left; /* Aligns text to the left */
+  border-bottom: 1px solid #ccc; /* Adds a line under each row */
+  width: 40%; /* Ensures each column takes up equal space */
+}
+
+.tabledata th {
+  background-color: #F5DAD2; /* Light pink background for headers */
+  color: black; /* Text color for headers */
+  font-weight: bold; /* Makes header text bold */
+  position: sticky;
+  top:0;
+}
+
+.tabledata tr:hover {
+  background-color: #f0f0f0; /* Adds a hover effect for rows */
+}
+
+.tabledata h6 {
+  margin: 0;
+  padding: 10px;
+  background-color:  #F5DAD2;
+  color: black;
+  text-align: center;
+  font-size: 16px;
+}
+/* styling page control */
+#pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px; /* Space between buttons and page info */
+}
+
+#pagination button {
+  background-color: #ffffff; /* Button background color */
+  color: black; /* Button text color */
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Button padding */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+#pagination button:hover {
+  background-color: #B85A3B; /* Darker background on hover */
+}
+
+#pagination #pageInfo {
+  font-size: 16px; /* Font size for page info */
+  color: #333; /* Text color for page info */
+}
+
 
 /* footer */
 footer {

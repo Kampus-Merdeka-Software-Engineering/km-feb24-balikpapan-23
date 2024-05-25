@@ -30,11 +30,11 @@ function handleSort() {
 document.addEventListener('DOMContentLoaded', (event) => {
     // Fetch the JSON data from multiple online sources
     Promise.all([
-        fetch('../json/data1.json').then(res => res.json()),
-        fetch('../json/data2.json').then(res => res.json()),
-        fetch('../json/data3.json').then(res => res.json()),
-        fetch('../json/data4.json').then(res => res.json()),
-        fetch('../json/data5.json').then(res => res.json()) // Fetching data5.json
+        fetch('../json/data1.json').then(res => res.json()), // customer
+        fetch('../json/data2.json').then(res => res.json()), // quantity
+        fetch('../json/data3.json').then(res => res.json()), // revenue
+        fetch('../json/data4.json').then(res => res.json()), // top 5
+        fetch('../json/data5.json').then(res => res.json())  // Fetching data5.json
     ]).then(([customerRes, quantityRes, revenueRes, topProductsRes, logSalesRes]) => {
         customerData = customerRes;
         quantityData = quantityRes;
