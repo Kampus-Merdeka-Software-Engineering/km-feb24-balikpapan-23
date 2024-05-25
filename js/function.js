@@ -1,5 +1,6 @@
 let customerData, quantityData, revenueData, topProductsData;
 let customerChart, quantityChart, revenueChart, topProductsChart;
+//tabulasi
 let currentPage = 1;
 const rowsPerPage = 10;
 let logSalesData = [];
