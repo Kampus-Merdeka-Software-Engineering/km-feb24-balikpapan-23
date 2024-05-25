@@ -115,27 +115,25 @@
 <!-- Tabel -->
 <table>
   <thead>
-    <tr>
-      <th>Column 1</th>
-      <th>Column 2</th>
-      <th>Column 3</th>
-    </tr>
+      <tr>
+          <th>DateTime</th>
+          <th>Name</th>
+          <th>Size</th>
+          <th>Quantity</th>
+          <th>Price</th>
+      </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>Row 1, Cell 1</td>
-      <td>Row 1, Cell 2</td>
-      <td>Row 1, Cell 3</td>
-    </tr>
-    <tr>
-      <td>Row 2, Cell 1</td>
-      <td>Row 2, Cell 2</td>
-      <td>Row 2, Cell 3</td>
-    </tr>
-    <!-- Add more rows as needed -->
+  <tbody id="dataRows">
+      <!-- Dynamic rows will be inserted here -->
   </tbody>
 </table>
 
+   <!-- Pagination controls -->
+   <div id="pagination">
+    <button id="prevPage" onclick="changePage(-1)">Previous</button>
+    <span id="pageInfo"></span>
+    <button id="nextPage" onclick="changePage(1)">Next</button>
+</div>
 
 <!-- footer -->
 <footer class="footer">
@@ -144,4 +142,3 @@
 
 </body>
 </html>
-   

@@ -1,5 +1,8 @@
 let customerData, quantityData, revenueData, topProductsData;
 let customerChart, quantityChart, revenueChart, topProductsChart;
+let currentPage = 1;
+const rowsPerPage = 10;
+let logSalesData = [];
 
 // Define the handleSort function in the global scope
 function handleSort() {
@@ -26,20 +29,68 @@ function handleSort() {
 document.addEventListener('DOMContentLoaded', (event) => {
     // Fetch the JSON data from multiple online sources
     Promise.all([
-        fetch('../json/data1.json').then(res => res.json()), //Data Customer
-        fetch('../json/data2.json').then(res => res.json()), //Data Quantity
-        fetch('../json/data3.json').then(res => res.json()), //Data Revenue
-        fetch('../json/data4.json').then(res => res.json())  //Data Top 5
-    ]).then(([customerRes, quantityRes, revenueRes, topProductsRes]) => {
+        fetch('../json/data1.json').then(res => res.json()),
+        fetch('../json/data2.json').then(res => res.json()),
+        fetch('../json/data3.json').then(res => res.json()),
+        fetch('../json/data4.json').then(res => res.json()),
+        fetch('../json/data5.json').then(res => res.json()) // Fetching data5.json
+    ]).then(([customerRes, quantityRes, revenueRes, topProductsRes, logSalesRes]) => {
         customerData = customerRes;
         quantityData = quantityRes;
         revenueData = revenueRes;
         topProductsData = topProductsRes;
+        logSalesData = logSalesRes.log_sales; // Storing the fetched data from data5.json
 
         updateDashboard(customerData, quantityData, revenueData, topProductsData);
+        populateLogSalesTable(); // Populate the table with log sales data
+        updatePaginationControls();
+    }).catch(error => {
+        console.error('Error fetching data:', error);
     });
 });
 
+function populateLogSalesTable() {
+    const tableBody = document.querySelector('#dataRows');
+    if (!tableBody) {
+        console.error('Table body not found');
+        return;
+    }
+    tableBody.innerHTML = ''; // Clear any existing rows
+
+    const start = (currentPage - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+    const paginatedData = logSalesData.slice(start, end);
+
+    paginatedData.forEach(sale => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${new Date(sale.datetime).toLocaleString()}</td>
+            <td>${sale.name}</td>
+            <td>${sale.size}</td>
+            <td>${sale.quantity}</td>
+            <td>${sale.price.toFixed(2)}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+function updatePaginationControls() {
+    const pageInfo = document.getElementById('pageInfo');
+    const totalPages = Math.ceil(logSalesData.length / rowsPerPage);
+
+    pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+
+    document.getElementById('prevPage').disabled = currentPage === 1;
+    document.getElementById('nextPage').disabled = currentPage === totalPages;
+}
+
+function changePage(direction) {
+    currentPage += direction;
+    populateLogSalesTable();
+    updatePaginationControls();
+}
+
+//dashboard
 function updateDashboard(customerData, quantityData, revenueData, topProductsData) {
     // Update Customer Chart
     const customerCtx = document.getElementById('customerChart').getContext('2d');
@@ -160,7 +211,7 @@ function updateDashboard(customerData, quantityData, revenueData, topProductsDat
 // Top Products Chart
 const topProductsCtx = document.getElementById('topProductsChart').getContext('2d');
 topProductsChart = new Chart(topProductsCtx, {
-    type: 'pie',
+    type: 'bar',
     data: {
         labels: topProductsForMonth ? Object.keys(topProductsForMonth).filter(key => key !== 'Month') : [],
         datasets: [{
