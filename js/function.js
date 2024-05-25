@@ -5,6 +5,12 @@ let currentPage = 1;
 const rowsPerPage = 10;
 let logSalesData = [];
 
+//preloader bisa dihapus wkwkwkwk ini hasil gabut aja
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        document.getElementById('preloader').style.display = 'none';
+    }, 3000); // 10000 milliseconds = 10 seconds
+});
 // Define the handleSort function in the global scope
 function handleSort() {
     const sortOption = document.getElementById('sort-option').value;

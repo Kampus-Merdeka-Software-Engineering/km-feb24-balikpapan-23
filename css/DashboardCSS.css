@@ -4,6 +4,22 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* preloader aja wkwkwk bisa dihapus kok */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#preloader img {
+  width: 200px; /* Adjust size as needed */
+}
 
 /* styling font pada header */
 h1 {

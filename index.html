@@ -9,6 +9,11 @@
   <script src="./js/function.js" defer></script>
 </head>
 <body>
+
+  <!-- preloader wwwl -->
+  <div id="preloader">
+    <img src="rikka.gif" alt="Loading..." />
+</div>
   <!-- Bar Navigasi -->
   <nav class="navbar-wrapper">
     <div class="imghead">
@@ -18,8 +23,9 @@
     </div>
     <h1>Dashboard TIM 23</h1>
     <ul class="list-menu">
-      <li><a href="#home" id="home">Home</a></li> <!-- akan dibuat untuk profil(Rencana/ila diprllukan)-->
-      <li><a href="#dashboard" id="dashboard">Dashboard</a></li><!-- akan dibuat untuk dashboard-->
+      <li><a href="#home" id="home">Home</a></li>
+      <li><a href="#about" id="about">About</a></li>
+      <li><a href="#dashboard" id="dashboard">Dashboard</a></li>
     </ul>
   </nav> 
 
@@ -119,11 +125,11 @@
           <button id="prevPage" onclick="changePage(-1)">Previous</button>
           <span id="pageInfo"></span>
           <button id="nextPage" onclick="changePage(1)">Next</button>
-      </div>
+  </div>
       </div>
   <div class="tabledata">
     <!-- Tabel -->
-    <h6>Histori Penjualan</h6>
+    <h6>100 penjualan</h6>
     <table>
       <thead>
           <tr>
