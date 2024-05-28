@@ -223,7 +223,6 @@ h1 {
   display: flex;
   flex-wrap: wrap;
 }
-
 /* background belakang konten */
 .list-chart {
   width: 50%;
@@ -233,6 +232,11 @@ h1 {
   background-size: 20px 100%;
   border-width: 2px 2px 0 0;
 }
+canvas {
+  width: 100% !important; /* Ensure canvas takes full width of container */
+  height: 100% !important; /* Ensure canvas takes full height of container */
+}
+
 
 /* styling isi kotak dashboard */
 .content {
@@ -353,6 +357,10 @@ footer {
   #topProductsChart {
     height: 200px; /* Adjust the height as needed */
   }
+  canvas {
+    width: 100% !important; /* Adjust width for smaller screens */
+    height: auto !important; /* Adjust height for smaller screens */
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px to 900px) */
@@ -375,7 +383,12 @@ footer {
     width: 100%;
     height: auto;
   }
+  
   #topProductsChart {
     height: 300px; /* Perbaikan bugnya */
+  }
+  canvas {
+    width: 100% !important; /* Adjust width for smaller screens */
+    height: auto !important; /* Adjust height for smaller screens */
   }
 }

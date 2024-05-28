@@ -1,6 +1,7 @@
 let customerData, quantityData, revenueData, topProductsData;
 let customerChart, quantityChart, revenueChart, topProductsChart;
-//tabulasi
+
+//batas tabulasi
 let currentPage = 1;
 const rowsPerPage = 10;
 let logSalesData = [];
@@ -316,3 +317,23 @@ function updateCustomerChart(selectedMonth) {
         }
     });
 }
+
+// Function to sort data by DateTime
+function sortDataByDateTime(order) {
+    logSalesData.sort((a, b) => {
+        const dateA = new Date(a.datetime);
+        const dateB = new Date(b.datetime);
+        return order === 'asc' ? dateA - dateB : dateB - dateA;
+    });
+    populateLogSalesTable(); // Update the table with sorted data
+}
+
+// Event listeners for sorting buttons
+document.getElementById('sort-asc').addEventListener('click', () => sortDataByDateTime('asc'));
+document.getElementById('sort-desc').addEventListener('click', () => sortDataByDateTime('desc'));
+
+// Initial population of the table
+document.addEventListener('DOMContentLoaded', () => {
+    populateLogSalesTable();
+    updatePaginationControls();
+});
