@@ -9,7 +9,7 @@ let logSalesData = [];
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
         document.getElementById('preloader').style.display = 'none';
-    }, 3000); // 10000 milliseconds = 10 seconds
+    }, 1000); // timing
 });
 // Define the handleSort function in the global scope
 function handleSort() {
