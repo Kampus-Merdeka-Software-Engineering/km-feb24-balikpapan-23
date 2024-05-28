@@ -227,7 +227,7 @@ h1 {
 /* background belakang konten */
 .list-chart {
   width: 50%;
-  height: 400px;
+  height: 450px; /* csging sixe */
   padding: 16px;
   background-color: white;
   background-size: 20px 100%;
