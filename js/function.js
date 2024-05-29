@@ -72,8 +72,9 @@ function populateLogSalesTable() {
 
     paginatedData.forEach(sale => {
         const row = document.createElement('tr');
+        const dateTime = new Date(sale.datetime).toISOString().replace('T', ' ').replace('.000Z', '');
         row.innerHTML = `
-            <td>${new Date(sale.datetime).toLocaleString()}</td>
+            <td>${dateTime}</td>
             <td>${sale.name}</td>
             <td>${sale.size}</td>
             <td>${sale.quantity}</td>
