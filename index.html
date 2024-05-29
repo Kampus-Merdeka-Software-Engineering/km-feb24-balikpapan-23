@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,25 +9,21 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
   <script src="./js/function.js" defer></script>
 </head>
+
 <body>
 
   <!-- preloader wwwl -->
   <div id="preloader">
     <img src="loading.gif" alt="Loading..." />
-</div>
+  </div>
   <!-- Bar Navigasi -->
   <nav class="navbar-wrapper">
-    <div class="imghead">
-      <div class="img">
-        <img src="https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/company-logo/a32f81155cd0d4f16d36aef74f7d2644.png" style="width: 50px; height: 50px;">
-      </div>
-    </div>
+
+    <img class="revouimg"
+      src="https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/company-logo/a32f81155cd0d4f16d36aef74f7d2644.png">
     <h1>Dashboard TIM 23</h1>
-    <ul class="list-menu">
-      <li><a href="#home" id="home">Home</a></li>  <!-- Rencana akan dijadikan home page profil-->
-      <li><a href="#dashboard" id="dashboard">Dashboard</a></li> <!-- Main content-->
-    </ul>
-  </nav> 
+
+  </nav>
 
   <!-- filter sortby-->
   <div class="filter-container">
@@ -46,117 +43,118 @@
     <div class="insidetit">
       PIZZA SALES 2015
     </div>
-  </div>
-  
-   <!-- Chart  Revenue -->
-  <div class="list-chart">
-    <div class="content">
-      <h3>Revenue</h3>
-      <div id="revenue">
-        Total Revenue: $<span id="total-revenue">0</span>
-      </div>
-      <div id="month-buttons">
-        <select onchange="updateRevenueChart(this.value)">
-          <option value="Jan">January</option>
-          <option value="Feb">February</option>
-          <option value="Mar">March</option>
-          <option value="Apr">April</option>
-          <option value="May">May</option>
-          <option value="Jun">June</option>
-          <option value="Jul">July</option>
-          <option value="Aug">August</option>
-          <option value="Sep">September</option>
-          <option value="Oct">October</option>
-          <option value="Nov">November</option>
-          <option value="Dec">December</option>
-        </select>
-      </div>
-      <canvas id="revenueChart"></canvas>
     </div>
-  </div>
+
+    <!-- Chart  Revenue -->
+    <div class="list-chart">
+      <div class="content">
+        <h3>Revenue</h3>
+        <div id="revenue">
+          Total Revenue: $<span id="total-revenue">0</span>
+        </div>
+        <div id="month-buttons">
+          <select onchange="updateRevenueChart(this.value)">
+            <option value="Jan">January</option>
+            <option value="Feb">February</option>
+            <option value="Mar">March</option>
+            <option value="Apr">April</option>
+            <option value="May">May</option>
+            <option value="Jun">June</option>
+            <option value="Jul">July</option>
+            <option value="Aug">August</option>
+            <option value="Sep">September</option>
+            <option value="Oct">October</option>
+            <option value="Nov">November</option>
+            <option value="Dec">December</option>
+          </select>
+        </div>
+        <canvas id="revenueChart"></canvas>
+      </div>
+    </div>
 
     <!-- Chart Quantity -->
-  <div class="list-chart">
-    <div class="content">
-      <h4>Quantity</h4>
-      <p id="quantity">Total Quantity: 0</p>
-      <canvas id="quantityChart"></canvas>
+    <div class="list-chart">
+      <div class="content">
+        <h4>Quantity</h4>
+        <p id="quantity">Total Quantity: 0</p>
+        <canvas id="quantityChart"></canvas>
+      </div>
     </div>
-  </div>
 
     <!-- Chart Customer  -->
-  <div class="list-chart">
-    <div class="content">
-      <h5>Customer</h5>
-      <p id="customer">Total Customers: 0</p>
-      <div id="customer-month-buttons">
-        <select onchange="updateCustomerChart(this.value)">
-          <option value="Jan">January</option>
-          <option value="Feb">February</option>
-          <option value="Mar">March</option>
-          <option value="Apr">April</option>
-          <option value="May">May</option>
-          <option value="Jun">June</option>
-          <option value="Jul">July</option>
-          <option value="Aug">August</option>
-          <option value="Sep">September</option>
-          <option value="Oct">October</option>
-          <option value="Nov">November</option>
-          <option value="Dec">December</option>
-        </select>
+    <div class="list-chart">
+      <div class="content">
+        <h5>Customer</h5>
+        <p id="customer">Total Customers: 0</p>
+        <div id="customer-month-buttons">
+          <select onchange="updateCustomerChart(this.value)">
+            <option value="Jan">January</option>
+            <option value="Feb">February</option>
+            <option value="Mar">March</option>
+            <option value="Apr">April</option>
+            <option value="May">May</option>
+            <option value="Jun">June</option>
+            <option value="Jul">July</option>
+            <option value="Aug">August</option>
+            <option value="Sep">September</option>
+            <option value="Oct">October</option>
+            <option value="Nov">November</option>
+            <option value="Dec">December</option>
+          </select>
+        </div>
+        <canvas id="customerChart"></canvas>
       </div>
-      <canvas id="customerChart"></canvas>
     </div>
-  </div>
 
 
     <!-- Chart Top 5  -->
-  <div class="list-chart">
-    <div class="content">
-      <h6>Top 5 Products</h6>
-      <div id="top-products"></div>
-      <canvas id="topProductsChart"></canvas>
-    </div>
-  </div>
-
-         <!-- Pagination controls -->
-  <div id="pagination">
-          <button id="prevPage" onclick="changePage(-1)">Previous</button>
-          <span id="pageInfo"></span>
-          <button id="nextPage" onclick="changePage(1)">Next</button>
-  </div>
+    <div class="list-chart">
+      <div class="content">
+        <h6>Top 5 Products</h6>
+        <div id="top-products"></div>
+        <canvas id="topProductsChart"></canvas>
       </div>
-  <div class="tabledata">
-    <!-- Tabel -->
-    <div>
-      <button id="sort-asc">Ascending</button>
-      <button id="sort-desc">Descending</button>
     </div>
-    <h6>Historri Penjualan Pizza</h6>
-    <table>
-      <thead>
+
+    <!-- Pagination controls -->
+    <div id="pagination">
+      <button id="prevPage" onclick="changePage(-1)">Previous</button>
+      <span id="pageInfo"></span>
+      <button id="nextPage" onclick="changePage(1)">Next</button>
+    </div>
+    </div>
+    <div class="tabledata">
+      <!-- Tabel -->
+      <div id="descasc">
+        <button id="sort-asc">Ascending</button>
+        <button id="sort-desc">Descending</button>
+      </div>
+      <h6>Historri Penjualan Pizza</h6>
+      <table>
+        <thead>
           <tr>
-              <th>DateTime</th>
-              <th>Name</th>
-              <th>Size</th>
-              <th>Quantity</th>
-              <th>Price</th>
+            <th>DateTime</th>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Quantity</th>
+            <th>Price</th>
           </tr>
-      </thead>
-      <tbody id="dataRows">
+        </thead>
+        <tbody id="dataRows">
           <!-- Dynamic rows will be inserted here -->
-      </tbody>
-    </table>
-    
-
-</section>
-    
+        </tbody>
+      </table>
 
 
-<!-- footer -->
-<footer class="footer">
-  <p>© Team 23 Balikpapan Revou</p>
-</footer>
+  </section>
+
+
+
+  <!-- footer -->
+  <footer class="footer">
+    <p>© Team 23 Balikpapan Revou</p>
+  </footer>
 
 </body>
+
 </html>
