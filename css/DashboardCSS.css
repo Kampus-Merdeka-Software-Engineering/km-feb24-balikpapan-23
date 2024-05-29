@@ -12,7 +12,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #fff;
+  background-color: #D57149;
   z-index: 9999;
   display: flex;
   justify-content: center;
@@ -439,7 +439,7 @@ canvas {
 }
 
 #descasc button:hover {
-  background-color: #F5DAD2;
+  background-color: #e09e89;
   /* Darker background on hover */
   color: black;
 }
