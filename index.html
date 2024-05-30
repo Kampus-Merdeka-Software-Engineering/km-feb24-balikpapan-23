@@ -128,21 +128,23 @@
       <div id="descasc">
         <button id="sort-asc">Ascending</button>
         <button id="sort-desc">Descending</button>
+        <input type="text" id="searchInput" placeholder="input keyword such as date,name,size,qunatity or price" onkeyup="searchTable()">
       </div>
-      <h6>Historri Penjualan Pizza</h6>
+      <h6>Histori Penjualan Pizza</h6>
       <table>
-        <thead>
-          <tr>
-            <th>DateTime</th>
-            <th>Name</th>
-            <th>Size</th>
-            <th>Quantity</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody id="dataRows">
-          <!-- Dynamic rows will be inserted here -->
-        </tbody>
+          <thead>
+              <tr>
+                  <th>DateTime</th>
+                  <th>Name</th>
+                  <th>Size</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+              </tr>
+          </thead>
+          <tbody id="dataRows">
+              <!-- Table rows will be dynamically populated -->
+          </tbody>
+      </table>
       </table>
 
 

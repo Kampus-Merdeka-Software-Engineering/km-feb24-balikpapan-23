@@ -100,6 +100,26 @@ function changePage(direction) {
     updatePaginationControls();
 }
 
+//fitur seraching pada tabel
+function searchTable() {
+    const input = document.getElementById('searchInput');
+    const filter = input.value.toUpperCase();
+    const table = document.getElementById('dataRows');
+    const tr = table.getElementsByTagName('tr');
+
+    for (let i = 0; i < tr.length; i++) {
+        let visible = false;
+        const td = tr[i].getElementsByTagName('td');
+        for (let j = 0; j < td.length; j++) {
+            if (td[j] && td[j].textContent.toUpperCase().indexOf(filter) > -1) {
+                visible = true;
+                break;
+            }
+        }
+        tr[i].style.display = visible ? "" : "none";
+    }
+}
+
 //dashboard
 function updateDashboard(customerData, quantityData, revenueData, topProductsData) {
     // Update Customer Chart
