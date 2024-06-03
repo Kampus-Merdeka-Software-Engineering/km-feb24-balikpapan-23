@@ -358,3 +358,30 @@ document.addEventListener('DOMContentLoaded', () => {
     populateLogSalesTable();
     updatePaginationControls();
 });
+
+
+// Function to convert data to CSV format
+function convertToCSV(data) {
+    const header = Object.keys(data[0]).join(',');
+    const rows = data.map(row => Object.values(row).join(',')).join('\n');
+    return `${header}\n${rows}`;
+}
+
+// Function to download CSV file
+function downloadCSV(data, filename) {
+    const csv = convertToCSV(data);
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    window.URL.revokeObjectURL(url);
+}
+
+// Function to trigger CSV download
+function downloadTableAsCSV() {
+    const data = logSalesData; // Assuming logSalesData is the data you want to download
+    const filename = 'sales_data.csv';
+    downloadCSV(data, filename);
+}
