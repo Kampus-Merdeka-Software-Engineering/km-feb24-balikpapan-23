@@ -466,6 +466,8 @@ footer {
   .filter-product,
   .sort-container {
     flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
   }
 
   .filter-container,
@@ -513,6 +515,8 @@ footer {
   .filter-product,
   .sort-container {
     flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
   }
 
   .filter-container,
