@@ -455,8 +455,8 @@ footer {
 }
 
 /* Responsifitas page */
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+/* Extra small devices (phones) */
+@media only screen and (max-width: 640px) {
 
   .navbar-wrapper,
   .hero-section,
@@ -504,8 +504,8 @@ footer {
   }
 }
 
-/* Small devices (portrait tablets and large phones, 600px to 900px) */
-@media only screen and (min-width: 601px) and (max-width: 900px) {
+/* Small devices (portrait tablets and large phones) */
+@media only screen and (min-width: 641px) and (max-width: 1007px) {
 
   .navbar-wrapper,
   .hero-section,
