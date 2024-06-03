@@ -339,7 +339,6 @@ canvas {
   /* Adds vertical scroll if content overflows */
 }
 
-.tabledata th,
 .tabledata td {
   padding: 12px;
   /* Increased padding for better spacing */
@@ -369,13 +368,13 @@ canvas {
 
 .tabledata h6 {
   margin: 0;
+  width: auto;
   padding: 10px;
   background-color: #F5DAD2;
   color: black;
   text-align: center;
   font-size: 16px;
 }
-
 /* styling page control */
 #pagination {
   display: flex;
