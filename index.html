@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tim 23 Balikpapan RevoU</title>
-  <link rel="stylesheet" href="./css/DashboardCSS.css">
+  <link rel="stylesheet" href="./css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-  <script src="./js/function.js" defer></script>
+  <script src="./js/main.js" defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
@@ -39,7 +40,7 @@
   </div>
 
   <!-- Isi web: Dashboard -->
-  <section class="hero-section">
+  <section class="hero-section" data-aos="fade-up" data-aos-delay="2000">
     <div class="insidetit">
       PIZZA SALES 2015
     </div>
@@ -83,7 +84,7 @@
 
     <!-- Chart Customer  -->
     <div class="list-chart">
-      <div class="content">
+      <div class="content" >
         <h5>Customer</h5>
         <p id="customer">Total Customers: 0</p>
         <div id="customer-month-buttons">
@@ -158,6 +159,11 @@
   <footer class="footer">
     <p>© Team 23 Balikpapan Revou</p>
   </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
 </body>
 
